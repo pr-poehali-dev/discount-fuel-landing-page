@@ -2,16 +2,16 @@ import Icon from "@/components/ui/icon";
 import { useInView } from "./hooks";
 
 const TICKER_ITEMS = [
-  "⚡ Дизельное топливо",
+  "⚡ Дизельное топливо Евро-5",
   "🔥 Бензин АИ-92",
   "🔥 Бензин АИ-95",
-  "🚚 Доставка по городу",
+  "⛽ Сеть заправочных станций",
   "✅ Честные цены",
   "📋 Чеки и документы",
-  "⚡ Дизельное топливо",
+  "⚡ Дизельное топливо Евро-5",
   "🔥 Бензин АИ-92",
   "🔥 Бензин АИ-95",
-  "🚚 Доставка по городу",
+  "⛽ Сеть заправочных станций",
   "✅ Честные цены",
   "📋 Чеки и документы",
 ];
@@ -42,7 +42,7 @@ export default function HeroSection() {
         <div className="max-w-2xl">
           <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[hsl(38,95%,52%)/30] text-[hsl(38,95%,52%)] text-xs font-semibold uppercase tracking-widest mb-6 opacity-0 ${inView ? "animate-fade-up" : ""}`}>
             <span className="w-1.5 h-1.5 rounded-full bg-[hsl(38,95%,52%)] animate-pulse" />
-            Доставка топлива · 24/7
+            Сеть заправочных станций
           </div>
 
           <h1
@@ -51,11 +51,11 @@ export default function HeroSection() {
           >
             ДИЗЕЛЬ<br />
             <span className="gradient-amber amber-glow">И БЕНЗИН</span><br />
-            <span className="text-[hsl(36,20%,92%)]">С ДОСТАВКОЙ</span>
+            <span className="text-[hsl(36,20%,92%)]">НА ЗАПРАВКЕ</span>
           </h1>
 
           <p className={`text-base md:text-lg text-muted-foreground max-w-xl mb-10 opacity-0 delay-300 ${inView ? "animate-fade-up" : ""}`}>
-            Качественное топливо по рыночным ценам. Привезём в удобное время — на дачу, стройку или в гараж.
+            Качественное топливо по рыночным ценам. Заправляйтесь на наших станциях — быстро, честно, без очередей.
           </p>
 
           <div className={`flex flex-wrap gap-4 opacity-0 delay-400 ${inView ? "animate-fade-up" : ""}`}>
@@ -64,7 +64,7 @@ export default function HeroSection() {
               className="flex items-center gap-2 px-7 py-3.5 rounded-xl font-bold text-[hsl(20,10%,5%)] bg-[hsl(38,95%,52%)] hover:opacity-90 transition-opacity animate-pulse-amber text-base"
             >
               <Icon name="Fuel" size={18} />
-              Заказать топливо
+              Узнать цены
             </a>
             <a
               href="#fuel"
@@ -81,7 +81,7 @@ export default function HeroSection() {
               { n: "5 000+", label: "клиентов" },
               { n: "8 лет", label: "на рынке" },
               { n: "24/7", label: "работаем" },
-              { n: "1 час", label: "доставка" },
+              { n: "3", label: "заправки" },
             ].map((s) => (
               <div key={s.label}>
                 <div className="text-2xl font-black amber-text" style={{ fontFamily: "Oswald, sans-serif" }}>{s.n}</div>

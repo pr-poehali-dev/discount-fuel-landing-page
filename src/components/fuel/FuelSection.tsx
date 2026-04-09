@@ -19,7 +19,7 @@ const FUELS = [
       "Паспорт качества",
       "Для любой техники",
     ],
-    minOrder: "от 100 литров",
+    minOrder: "",
   },
   {
     id: "ai92",
@@ -38,7 +38,7 @@ const FUELS = [
       "Паспорт качества",
       "Для легковых авто",
     ],
-    minOrder: "от 50 литров",
+    minOrder: "",
   },
   {
     id: "ai95",
@@ -57,7 +57,7 @@ const FUELS = [
       "Паспорт качества",
       "Улучшенная динамика",
     ],
-    minOrder: "от 50 литров",
+    minOrder: "",
   },
 ];
 
@@ -120,7 +120,6 @@ export default function FuelSection() {
                     {fuel.price}
                   </span>
                   <span className="text-lg text-muted-foreground ml-1">{fuel.unit}</span>
-                  <div className="text-xs text-muted-foreground mt-1">{fuel.minOrder}</div>
                 </div>
 
                 {/* Desc */}
@@ -141,8 +140,8 @@ export default function FuelSection() {
                   className="mt-7 flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm transition-all duration-200 text-[hsl(20,10%,5%)]"
                   style={{ background: fuel.color }}
                 >
-                  <Icon name="ShoppingCart" size={15} />
-                  Заказать {fuel.short}
+                  <Icon name="MapPin" size={15} />
+                  Найти заправку
                 </a>
               </div>
             </div>
@@ -153,7 +152,7 @@ export default function FuelSection() {
         <div className={`mt-8 flex items-start gap-3 p-4 rounded-xl border border-[hsl(38,95%,52%)/20] bg-[hsl(38,95%,52%)/5] opacity-0 delay-700 ${inView ? "animate-fade-up" : ""}`}>
           <Icon name="Info" size={16} className="amber-text mt-0.5 flex-shrink-0" />
           <p className="text-xs text-muted-foreground">
-            Цены актуальны на дату посещения сайта. При заказе от 500 литров — скидка. Уточняйте у менеджера.
+            Цены актуальны на дату посещения сайта. Уточняйте актуальные цены у операторов на заправке или по телефону.
           </p>
         </div>
       </div>
