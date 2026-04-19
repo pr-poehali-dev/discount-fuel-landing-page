@@ -1,11 +1,12 @@
 import Icon from "@/components/ui/icon";
 
 const LINKS = [
-  { label: "Главная",  href: "#hero" },
-  { label: "Топливо",  href: "#fuel" },
-  { label: "Оплата",   href: "#payment" },
-  { label: "Отзывы",  href: "#reviews" },
-  { label: "Контакты", href: "#contacts" },
+  { label: "Главная",      href: "#hero" },
+  { label: "Топливо",      href: "#fuel" },
+  { label: "Калькулятор",  href: "#calculator" },
+  { label: "Как работает", href: "#payment" },
+  { label: "Отзывы",      href: "#reviews" },
+  { label: "Контакты",    href: "#contacts" },
 ];
 
 export default function NavBar() {
