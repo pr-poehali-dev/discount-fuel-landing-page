@@ -2,6 +2,8 @@ import { useState } from "react";
 import Icon from "@/components/ui/icon";
 import { useInView } from "./hooks";
 
+const BLUE = "hsl(210,90%,56%)";
+
 export default function ContactsSection() {
   const { ref, inView } = useInView();
   const [form, setForm] = useState({ name: "", phone: "", network: "Газпромнефть", volume: "", comment: "" });
@@ -17,25 +19,24 @@ export default function ContactsSection() {
       <section id="contacts" ref={ref} className="py-24 px-6">
         <div className="max-w-5xl mx-auto">
           <div className={`text-center mb-14 opacity-0 ${inView ? "animate-fade-up" : ""}`}>
-            <span className="text-[hsl(38,95%,52%)] text-xs font-bold uppercase tracking-widest">Контакты</span>
-            <h2 className="text-4xl md:text-5xl font-black mt-2" style={{ fontFamily: "Oswald, sans-serif" }}>
+            <span className="amber-text text-xs font-bold uppercase tracking-widest">Контакты</span>
+            <h2 className="text-4xl md:text-5xl font-black mt-2 text-white" style={{ fontFamily: "Oswald, sans-serif" }}>
               ОФОРМИТЬ СКИДКУ
             </h2>
-            <p className="text-muted-foreground mt-3 text-sm">Оставьте заявку — перезвоним за 15 минут</p>
+            <p className="text-[hsl(215,20%,55%)] mt-3 text-sm">Оставьте заявку — перезвоним за 15 минут</p>
           </div>
 
           <div className={`grid md:grid-cols-2 gap-8 opacity-0 delay-200 ${inView ? "animate-fade-up" : ""}`}>
-            {/* Form */}
             <div>
               {sent ? (
                 <div className="glass-dark amber-border rounded-2xl p-12 text-center h-full flex flex-col items-center justify-center">
-                  <div className="w-16 h-16 rounded-full bg-[hsl(38,95%,52%)/15] flex items-center justify-center mb-5">
+                  <div className="w-16 h-16 rounded-full bg-[hsl(210,90%,56%)/15] flex items-center justify-center mb-5">
                     <Icon name="CheckCircle" size={32} className="amber-text" />
                   </div>
-                  <h3 className="text-2xl font-black mb-2" style={{ fontFamily: "Oswald, sans-serif" }}>
+                  <h3 className="text-2xl font-black mb-2 text-white" style={{ fontFamily: "Oswald, sans-serif" }}>
                     Заявка принята!
                   </h3>
-                  <p className="text-muted-foreground text-sm">
+                  <p className="text-[hsl(215,20%,55%)] text-sm">
                     Перезвоним в течение 15 минут и оформим топливную карту со скидкой.
                   </p>
                 </div>
@@ -43,32 +44,32 @@ export default function ContactsSection() {
                 <form onSubmit={handleSubmit} className="glass-dark rounded-2xl p-7 space-y-4">
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wide block mb-1.5">Имя</label>
+                      <label className="text-xs font-semibold text-[hsl(215,20%,55%)] uppercase tracking-wide block mb-1.5">Имя</label>
                       <input
                         type="text" required placeholder="Иван"
                         value={form.name}
                         onChange={(e) => setForm({ ...form, name: e.target.value })}
-                        className="w-full bg-[hsl(20,8%,7%)] border border-[hsl(20,8%,18%)] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[hsl(38,95%,52%)] transition-colors"
+                        className="w-full bg-[hsl(222,40%,6%)] border border-[hsl(222,30%,16%)] rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-[hsl(215,20%,35%)] focus:outline-none focus:border-[hsl(210,90%,56%)] transition-colors"
                       />
                     </div>
                     <div>
-                      <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wide block mb-1.5">Телефон</label>
+                      <label className="text-xs font-semibold text-[hsl(215,20%,55%)] uppercase tracking-wide block mb-1.5">Телефон</label>
                       <input
                         type="tel" required placeholder="+7 (999) 000-00-00"
                         value={form.phone}
                         onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                        className="w-full bg-[hsl(20,8%,7%)] border border-[hsl(20,8%,18%)] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[hsl(38,95%,52%)] transition-colors"
+                        className="w-full bg-[hsl(222,40%,6%)] border border-[hsl(222,30%,16%)] rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-[hsl(215,20%,35%)] focus:outline-none focus:border-[hsl(210,90%,56%)] transition-colors"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wide block mb-1.5">Сеть АЗС</label>
+                      <label className="text-xs font-semibold text-[hsl(215,20%,55%)] uppercase tracking-wide block mb-1.5">Сеть АЗС</label>
                       <select
                         value={form.network}
                         onChange={(e) => setForm({ ...form, network: e.target.value })}
-                        className="w-full bg-[hsl(20,8%,7%)] border border-[hsl(20,8%,18%)] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[hsl(38,95%,52%)] transition-colors"
+                        className="w-full bg-[hsl(222,40%,6%)] border border-[hsl(222,30%,16%)] rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-[hsl(210,90%,56%)] transition-colors"
                       >
                         <option>Газпромнефть</option>
                         <option>Роснефть</option>
@@ -76,43 +77,43 @@ export default function ContactsSection() {
                       </select>
                     </div>
                     <div>
-                      <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wide block mb-1.5">Объём в месяц (л)</label>
+                      <label className="text-xs font-semibold text-[hsl(215,20%,55%)] uppercase tracking-wide block mb-1.5">Объём в месяц (л)</label>
                       <input
                         type="number" placeholder="1000" min={100}
                         value={form.volume}
                         onChange={(e) => setForm({ ...form, volume: e.target.value })}
-                        className="w-full bg-[hsl(20,8%,7%)] border border-[hsl(20,8%,18%)] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[hsl(38,95%,52%)] transition-colors"
+                        className="w-full bg-[hsl(222,40%,6%)] border border-[hsl(222,30%,16%)] rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-[hsl(215,20%,35%)] focus:outline-none focus:border-[hsl(210,90%,56%)] transition-colors"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wide block mb-1.5">Комментарий</label>
+                    <label className="text-xs font-semibold text-[hsl(215,20%,55%)] uppercase tracking-wide block mb-1.5">Комментарий</label>
                     <textarea
                       placeholder="Физлицо / ИП / ООО, регион, вопросы..."
                       rows={3}
                       value={form.comment}
                       onChange={(e) => setForm({ ...form, comment: e.target.value })}
-                      className="w-full bg-[hsl(20,8%,7%)] border border-[hsl(20,8%,18%)] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[hsl(38,95%,52%)] transition-colors resize-none"
+                      className="w-full bg-[hsl(222,40%,6%)] border border-[hsl(222,30%,16%)] rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-[hsl(215,20%,35%)] focus:outline-none focus:border-[hsl(210,90%,56%)] transition-colors resize-none"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full py-3.5 rounded-xl font-bold text-[hsl(20,10%,5%)] bg-[hsl(38,95%,52%)] hover:opacity-90 transition-opacity animate-pulse-amber flex items-center justify-center gap-2 text-base"
+                    className="w-full py-3.5 rounded-xl font-bold text-white hover:opacity-90 transition-opacity animate-pulse-amber flex items-center justify-center gap-2 text-base"
+                    style={{ background: BLUE }}
                   >
                     <Icon name="Fuel" size={18} />
                     Получить скидку
                   </button>
 
-                  <p className="text-xs text-center text-muted-foreground">
+                  <p className="text-xs text-center text-[hsl(215,20%,40%)]">
                     Нажимая кнопку, вы соглашаетесь с обработкой персональных данных
                   </p>
                 </form>
               )}
             </div>
 
-            {/* Info */}
             <div className="flex flex-col gap-4">
               {[
                 { icon: "Phone",         title: "+7 (800) 000-00-00", sub: "Звонок бесплатный, 24/7" },
@@ -120,22 +121,22 @@ export default function ContactsSection() {
                 { icon: "Mail",          title: "info@diesel-discount.ru", sub: "Для корпоративных клиентов" },
               ].map((c) => (
                 <div key={c.title} className="glass-dark rounded-xl px-5 py-4 flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-[hsl(38,95%,52%)/12] flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-[hsl(210,90%,56%)/12] flex items-center justify-center flex-shrink-0">
                     <Icon name={c.icon} size={18} className="amber-text" />
                   </div>
                   <div>
-                    <div className="font-semibold text-sm">{c.title}</div>
-                    <div className="text-xs text-muted-foreground">{c.sub}</div>
+                    <div className="font-semibold text-sm text-white">{c.title}</div>
+                    <div className="text-xs text-[hsl(215,20%,50%)]">{c.sub}</div>
                   </div>
                 </div>
               ))}
 
-              <div className="glass-dark rounded-xl px-5 py-4 border border-[hsl(38,95%,52%)/20] bg-[hsl(38,95%,52%)/5] mt-auto">
+              <div className="glass-dark rounded-xl px-5 py-4 border border-[hsl(210,90%,56%)/20] bg-[hsl(210,90%,56%)/6] mt-auto">
                 <div className="flex items-center gap-2 amber-text font-bold text-sm mb-2">
                   <Icon name="TrendingDown" size={16} />
                   Чем больше объём — тем выше скидка
                 </div>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-xs text-[hsl(215,20%,55%)]">
                   От 500 л/мес — скидка от 10%, от 2000 л/мес — до 18%. Работаем с физлицами, ИП и ООО.
                 </p>
               </div>
@@ -144,10 +145,9 @@ export default function ContactsSection() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-[hsl(20,8%,12%)] py-7 px-6">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-          <span className="font-black" style={{ fontFamily: "Oswald, sans-serif" }}>
+      <footer className="border-t border-[hsl(222,30%,12%)] py-7 px-6">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-[hsl(215,20%,45%)]">
+          <span className="font-black text-white" style={{ fontFamily: "Oswald, sans-serif" }}>
             ДИЗЕЛЬ<span className="amber-text">−18%</span>
           </span>
           <span>© 2026 — Дизель со скидкой на Газпромнефть и Роснефть</span>

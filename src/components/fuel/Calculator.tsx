@@ -3,8 +3,8 @@ import Icon from "@/components/ui/icon";
 import { useInView } from "./hooks";
 
 const NETWORKS = [
-  { id: "gazprom", name: "Газпромнефть", logo: "🟦", retail: 76, discount: 18, color: "hsl(210,90%,52%)" },
-  { id: "rosneft", name: "Роснефть",     logo: "🟨", retail: 75, discount: 16, color: "hsl(38,95%,52%)" },
+  { id: "gazprom", name: "Газпромнефть", logo: "🟦", retail: 76, discount: 18, color: "hsl(210,90%,56%)" },
+  { id: "rosneft", name: "Роснефть",     logo: "🟨", retail: 75, discount: 16, color: "hsl(200,85%,52%)" },
 ];
 
 const VOLUME_PRESETS = [500, 1000, 2000, 5000, 10000];
@@ -26,24 +26,24 @@ export default function Calculator() {
     <section id="calculator" ref={ref} className="py-24 px-6 fuel-grid">
       <div className="max-w-4xl mx-auto">
         <div className={`text-center mb-14 opacity-0 ${inView ? "animate-fade-up" : ""}`}>
-          <span className="text-[hsl(38,95%,52%)] text-xs font-bold uppercase tracking-widest">Калькулятор</span>
-          <h2 className="text-4xl md:text-5xl font-black mt-2" style={{ fontFamily: "Oswald, sans-serif" }}>
+          <span className="amber-text text-xs font-bold uppercase tracking-widest">Калькулятор</span>
+          <h2 className="text-4xl md:text-5xl font-black mt-2 text-white" style={{ fontFamily: "Oswald, sans-serif" }}>
             СКОЛЬКО ВЫ СЭКОНОМИТЕ
           </h2>
-          <p className="text-muted-foreground mt-3 text-sm">Введите ваш объём дизеля в месяц — считаем мгновенно</p>
+          <p className="text-[hsl(215,20%,55%)] mt-3 text-sm">Введите ваш объём дизеля в месяц — считаем мгновенно</p>
         </div>
 
         <div className={`glass-dark rounded-2xl overflow-hidden opacity-0 delay-200 ${inView ? "animate-fade-up" : ""}`}>
           {/* Network selector */}
-          <div className="flex border-b border-[hsl(20,8%,14%)]">
+          <div className="flex border-b border-[hsl(222,30%,14%)]">
             {NETWORKS.map((n) => (
               <button
                 key={n.id}
                 onClick={() => setNetworkId(n.id)}
                 className={`flex-1 flex items-center justify-center gap-2.5 py-4 text-sm font-bold transition-all duration-200 ${
                   networkId === n.id
-                    ? "text-[hsl(20,10%,5%)]"
-                    : "text-muted-foreground hover:text-foreground bg-transparent"
+                    ? "text-white"
+                    : "text-[hsl(215,20%,50%)] hover:text-white bg-transparent"
                 }`}
                 style={networkId === n.id ? { background: n.color } : {}}
               >
@@ -57,7 +57,7 @@ export default function Calculator() {
             {/* Volume input */}
             <div className="mb-8">
               <div className="flex items-center justify-between mb-3">
-                <label className="text-sm font-semibold">Объём дизеля в месяц</label>
+                <label className="text-sm font-semibold text-white">Объём дизеля в месяц</label>
                 <div className="flex items-center gap-2">
                   <input
                     type="number"
@@ -66,13 +66,12 @@ export default function Calculator() {
                     step={100}
                     value={volume}
                     onChange={(e) => setVolume(Math.max(100, Number(e.target.value)))}
-                    className="w-28 bg-[hsl(20,8%,7%)] border border-[hsl(20,8%,18%)] rounded-xl px-3 py-1.5 text-sm text-right font-bold focus:outline-none focus:border-[hsl(38,95%,52%)] transition-colors"
+                    className="w-28 bg-[hsl(222,40%,6%)] border border-[hsl(222,30%,16%)] rounded-xl px-3 py-1.5 text-sm text-white text-right font-bold focus:outline-none focus:border-[hsl(210,90%,56%)] transition-colors"
                   />
-                  <span className="text-sm text-muted-foreground">литров</span>
+                  <span className="text-sm text-[hsl(215,20%,50%)]">литров</span>
                 </div>
               </div>
 
-              {/* Slider */}
               <input
                 type="range"
                 min={100}
@@ -82,11 +81,10 @@ export default function Calculator() {
                 onChange={(e) => setVolume(Number(e.target.value))}
                 className="w-full h-2 rounded-full appearance-none cursor-pointer"
                 style={{
-                  background: `linear-gradient(to right, ${net.color} 0%, ${net.color} ${(volume / 20000) * 100}%, hsl(20,8%,15%) ${(volume / 20000) * 100}%, hsl(20,8%,15%) 100%)`,
+                  background: `linear-gradient(to right, ${net.color} 0%, ${net.color} ${(volume / 20000) * 100}%, hsl(222,30%,14%) ${(volume / 20000) * 100}%, hsl(222,30%,14%) 100%)`,
                 }}
               />
 
-              {/* Presets */}
               <div className="flex flex-wrap gap-2 mt-4">
                 {VOLUME_PRESETS.map((v) => (
                   <button
@@ -94,8 +92,8 @@ export default function Calculator() {
                     onClick={() => setVolume(v)}
                     className={`px-3 py-1 rounded-lg text-xs font-semibold border transition-all ${
                       volume === v
-                        ? "text-[hsl(20,10%,5%)] border-transparent"
-                        : "border-[hsl(20,8%,18%)] text-muted-foreground hover:border-[hsl(38,95%,52%)/50]"
+                        ? "text-white border-transparent"
+                        : "border-[hsl(222,30%,18%)] text-[hsl(215,20%,50%)] hover:border-[hsl(210,90%,56%)/50]"
                     }`}
                     style={volume === v ? { background: net.color } : {}}
                   >
@@ -108,24 +106,27 @@ export default function Calculator() {
             {/* Results */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
               {[
-                { label: "Цена на АЗС",   value: `${net.retail} ₽/л`,        sub: "без скидки",         muted: true },
-                { label: "Ваша цена",      value: `${ourPrice} ₽/л`,          sub: `скидка ${net.discount}%`, muted: false },
-                { label: "Экономия в месяц", value: `${savingMonth.toLocaleString("ru")} ₽`, sub: `${savingPerLiter} ₽ с каждого литра`, muted: false },
-                { label: "Экономия в год", value: `${savingYear.toLocaleString("ru")} ₽`, sub: "при том же объёме", muted: false },
+                { label: "Цена на АЗС",     value: `${net.retail} ₽/л`,                          sub: "без скидки",              muted: true },
+                { label: "Ваша цена",        value: `${ourPrice} ₽/л`,                            sub: `скидка ${net.discount}%`, muted: false },
+                { label: "Экономия в месяц", value: `${savingMonth.toLocaleString("ru")} ₽`,      sub: `${savingPerLiter} ₽/л`,   muted: false },
+                { label: "Экономия в год",   value: `${savingYear.toLocaleString("ru")} ₽`,       sub: "при том же объёме",       muted: false },
               ].map((r) => (
                 <div
                   key={r.label}
-                  className={`rounded-xl p-4 text-center ${r.muted ? "bg-[hsl(20,8%,7%)]" : ""}`}
-                  style={!r.muted ? { background: `${net.color}12`, border: `1px solid ${net.color}30` } : {}}
+                  className="rounded-xl p-4 text-center"
+                  style={r.muted
+                    ? { background: "hsl(222,40%,6%)" }
+                    : { background: `${net.color}12`, border: `1px solid ${net.color}30` }
+                  }
                 >
-                  <div className="text-xs text-muted-foreground mb-1">{r.label}</div>
+                  <div className="text-xs text-[hsl(215,20%,50%)] mb-1">{r.label}</div>
                   <div
-                    className={`text-xl font-black leading-tight`}
-                    style={{ fontFamily: "Oswald, sans-serif", color: r.muted ? "hsl(30,10%,50%)" : net.color }}
+                    className="text-xl font-black leading-tight"
+                    style={{ fontFamily: "Oswald, sans-serif", color: r.muted ? "hsl(215,20%,38%)" : net.color }}
                   >
                     {r.value}
                   </div>
-                  <div className="text-xs text-muted-foreground mt-1">{r.sub}</div>
+                  <div className="text-xs text-[hsl(215,20%,45%)] mt-1">{r.sub}</div>
                 </div>
               ))}
             </div>
@@ -138,16 +139,16 @@ export default function Calculator() {
               <div className="flex items-center gap-3">
                 <Icon name="TrendingDown" size={24} style={{ color: net.color }} />
                 <div>
-                  <div className="text-xs text-muted-foreground">Итого вместо</div>
+                  <div className="text-xs text-[hsl(215,20%,50%)]">Итого вместо</div>
                   <div className="text-sm font-bold">
-                    <span className="line-through text-muted-foreground mr-2">{totalRetail.toLocaleString("ru")} ₽/мес</span>
+                    <span className="line-through text-[hsl(215,20%,40%)] mr-2">{totalRetail.toLocaleString("ru")} ₽/мес</span>
                     <span style={{ color: net.color }}>платите {totalOur.toLocaleString("ru")} ₽/мес</span>
                   </div>
                 </div>
               </div>
               <a
                 href="#contacts"
-                className="flex-shrink-0 flex items-center gap-2 px-6 py-2.5 rounded-xl font-bold text-sm text-[hsl(20,10%,5%)] transition-opacity hover:opacity-90"
+                className="flex-shrink-0 flex items-center gap-2 px-6 py-2.5 rounded-xl font-bold text-sm text-white transition-opacity hover:opacity-90"
                 style={{ background: net.color }}
               >
                 <Icon name="Fuel" size={15} />
