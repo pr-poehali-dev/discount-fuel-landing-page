@@ -14,7 +14,7 @@ export default function NavBar() {
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="#hero" className="flex items-center gap-2">
           <span className="text-xl font-black tracking-tight" style={{ fontFamily: "Oswald, sans-serif" }}>
-            ТОПЛИВО<span className="amber-text">ПРО</span>
+            ДИЗЕЛЬ<span className="amber-text">−18%</span>
           </span>
         </a>
 
@@ -34,8 +34,8 @@ export default function NavBar() {
           href="#contacts"
           className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold text-[hsl(20,10%,5%)] bg-[hsl(38,95%,52%)] hover:opacity-90 transition-opacity amber-btn-glow"
         >
-          <Icon name="MapPin" size={14} />
-          Наши заправки
+          <Icon name="Fuel" size={14} />
+          Получить скидку
         </a>
       </div>
     </nav>

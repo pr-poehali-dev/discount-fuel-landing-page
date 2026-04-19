@@ -2,18 +2,18 @@ import Icon from "@/components/ui/icon";
 import { useInView } from "./hooks";
 
 const TICKER_ITEMS = [
-  "⚡ Дизельное топливо Евро-5",
-  "🔥 Бензин АИ-92",
-  "🔥 Бензин АИ-95",
-  "⛽ Сеть заправочных станций",
-  "✅ Честные цены",
+  "⛽ Дизель на Газпромнефть",
+  "⛽ Дизель на Роснефть",
+  "💰 Экономия до 18% на литре",
+  "✅ Официальные АЗС",
   "📋 Чеки и документы",
-  "⚡ Дизельное топливо Евро-5",
-  "🔥 Бензин АИ-92",
-  "🔥 Бензин АИ-95",
-  "⛽ Сеть заправочных станций",
-  "✅ Честные цены",
+  "🚛 Для юрлиц и физлиц",
+  "⛽ Дизель на Газпромнефть",
+  "⛽ Дизель на Роснефть",
+  "💰 Экономия до 18% на литре",
+  "✅ Официальные АЗС",
   "📋 Чеки и документы",
+  "🚛 Для юрлиц и физлиц",
 ];
 
 export default function HeroSection() {
@@ -42,7 +42,7 @@ export default function HeroSection() {
         <div className="max-w-2xl">
           <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[hsl(38,95%,52%)/30] text-[hsl(38,95%,52%)] text-xs font-semibold uppercase tracking-widest mb-6 opacity-0 ${inView ? "animate-fade-up" : ""}`}>
             <span className="w-1.5 h-1.5 rounded-full bg-[hsl(38,95%,52%)] animate-pulse" />
-            Сеть заправочных станций
+            Газпромнефть · Роснефть · Скидка до 18%
           </div>
 
           <h1
@@ -50,12 +50,12 @@ export default function HeroSection() {
             style={{ fontFamily: "Oswald, sans-serif", fontSize: "clamp(3rem, 8vw, 6.5rem)", letterSpacing: "-0.01em" }}
           >
             ДИЗЕЛЬ<br />
-            <span className="gradient-amber amber-glow">И БЕНЗИН</span><br />
-            <span className="text-[hsl(36,20%,92%)]">НА ЗАПРАВКЕ</span>
+            <span className="gradient-amber amber-glow">СО СКИДКОЙ</span><br />
+            <span className="text-[hsl(36,20%,92%)]">ДО 18%</span>
           </h1>
 
           <p className={`text-base md:text-lg text-muted-foreground max-w-xl mb-10 opacity-0 delay-300 ${inView ? "animate-fade-up" : ""}`}>
-            Качественное топливо по рыночным ценам. Заправляйтесь на наших станциях — быстро, честно, без очередей.
+            Заправляйтесь дизелем на официальных АЗС Газпромнефть и Роснефть — и платите меньше рыночной цены. Для физлиц и бизнеса.
           </p>
 
           <div className={`flex flex-wrap gap-4 opacity-0 delay-400 ${inView ? "animate-fade-up" : ""}`}>
@@ -64,24 +64,24 @@ export default function HeroSection() {
               className="flex items-center gap-2 px-7 py-3.5 rounded-xl font-bold text-[hsl(20,10%,5%)] bg-[hsl(38,95%,52%)] hover:opacity-90 transition-opacity animate-pulse-amber text-base"
             >
               <Icon name="Fuel" size={18} />
-              Узнать цены
+              Получить скидку
             </a>
             <a
               href="#fuel"
               className="flex items-center gap-2 px-7 py-3.5 rounded-xl font-bold border border-[hsl(38,95%,52%)/40] text-[hsl(38,95%,52%)] hover:bg-[hsl(38,95%,52%)/10] transition-all text-base"
             >
               <Icon name="ChevronDown" size={18} />
-              Смотреть цены
+              Как это работает
             </a>
           </div>
 
           {/* Stats */}
           <div className={`mt-14 flex flex-wrap gap-8 opacity-0 delay-600 ${inView ? "animate-fade-up" : ""}`}>
             {[
+              { n: "18%",    label: "экономия" },
               { n: "5 000+", label: "клиентов" },
-              { n: "8 лет", label: "на рынке" },
-              { n: "24/7", label: "работаем" },
-              { n: "3", label: "заправки" },
+              { n: "2",      label: "сети АЗС" },
+              { n: "8 лет",  label: "на рынке" },
             ].map((s) => (
               <div key={s.label}>
                 <div className="text-2xl font-black amber-text" style={{ fontFamily: "Oswald, sans-serif" }}>{s.n}</div>
